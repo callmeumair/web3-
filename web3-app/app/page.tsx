@@ -1,53 +1,52 @@
 'use client';
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useAccount, useContractRead, useContractWrite } from 'wagmi';
+import { useAccount, useReadContract, useWriteContract } from 'wagmi';
 import { useState } from 'react';
-import { wagmiConfig } from '../utils/web3';
 
 // Replace with your deployed contract address
 const TOKEN_CONTRACT_ADDRESS = 'YOUR_CONTRACT_ADDRESS';
+
+const tokenABI = [
+  {
+    inputs: [{ name: 'account', type: 'address' }],
+    name: 'balanceOf',
+    outputs: [{ name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      { name: 'to', type: 'address' },
+      { name: 'amount', type: 'uint256' },
+    ],
+    name: 'transfer',
+    outputs: [{ name: '', type: 'bool' }],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+];
 
 export default function Home() {
   const { address, isConnected } = useAccount();
   const [amount, setAmount] = useState('');
 
-  const { data: balance } = useContractRead({
+  const { data: balance } = useReadContract({
     address: TOKEN_CONTRACT_ADDRESS,
-    abi: [
-      {
-        inputs: [{ name: 'account', type: 'address' }],
-        name: 'balanceOf',
-        outputs: [{ name: '', type: 'uint256' }],
-        stateMutability: 'view',
-        type: 'function',
-      },
-    ],
+    abi: tokenABI,
     functionName: 'balanceOf',
     args: [address],
-    enabled: !!address,
+    enabled: Boolean(address),
   });
 
-  const { write: transfer } = useContractWrite({
-    address: TOKEN_CONTRACT_ADDRESS,
-    abi: [
-      {
-        inputs: [
-          { name: 'to', type: 'address' },
-          { name: 'amount', type: 'uint256' },
-        ],
-        name: 'transfer',
-        outputs: [{ name: '', type: 'bool' }],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-    ],
-    functionName: 'transfer',
-  });
+  const { writeContract: transfer } = useWriteContract();
 
   const handleTransfer = () => {
     if (!amount || !address) return;
     transfer({
+      address: TOKEN_CONTRACT_ADDRESS,
+      abi: tokenABI,
+      functionName: 'transfer',
       args: [address, BigInt(amount)],
     });
   };
