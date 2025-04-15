@@ -1,8 +1,8 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { WagmiConfig } from 'wagmi';
-import { wagmiConfig } from '../utils/web3';
+import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
+import { WagmiProvider } from 'wagmi';
+import { config } from '../utils/web3';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,11 +14,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <WagmiConfig config={wagmiConfig}>
+        <WagmiProvider config={config}>
           <RainbowKitProvider>
             {children}
           </RainbowKitProvider>
-        </WagmiConfig>
+        </WagmiProvider>
       </body>
     </html>
   );
