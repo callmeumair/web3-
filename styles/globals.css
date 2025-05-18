@@ -20,40 +20,49 @@ body {
 }
 
 @layer components {
+  .card-3d {
+    @apply relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card-3d::before {
+    content: "";
+    @apply absolute inset-0 bg-blue-900 rounded-lg;
+    transform: translateZ(-1px);
+  }
+  .card-3d:hover {
+    transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 0 30px 5px rgba(59, 130, 246, 0.5);
+  }
   .btn-primary {
     @apply px-4 py-2 bg-blue-500 text-white rounded-md transition-all duration-300 relative;
-    box-shadow: 0 0 10px var(--glow-color);
+    box-shadow: 0 0 10px var(--glow-color), 0 5px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
   }
-  
   .btn-primary:hover {
     @apply bg-blue-600;
-    box-shadow: 0 0 20px var(--glow-color);
-    transform: translateY(-1px);
+    box-shadow: 0 0 20px var(--glow-color), 0 2px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
   }
-  
   .btn-secondary {
     @apply px-4 py-2 bg-gray-600 text-white rounded-md transition-all duration-300 relative;
-    box-shadow: 0 0 10px rgba(75, 85, 99, 0.5);
+    box-shadow: 0 0 10px rgba(75, 85, 99, 0.5), 0 5px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
   }
-  
   .btn-secondary:hover {
     @apply bg-gray-700;
-    box-shadow: 0 0 20px rgba(75, 85, 99, 0.5);
-    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(75, 85, 99, 0.5), 0 2px 0px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
   }
-  
   .input-field {
     @apply w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
   }
-
   .card {
     @apply bg-gray-800 rounded-lg shadow-lg border border-gray-700;
   }
-
   .nav-link {
     @apply text-gray-300 hover:text-white transition-colors;
   }
-
   .nav-link-active {
     @apply text-white border-blue-500;
   }
