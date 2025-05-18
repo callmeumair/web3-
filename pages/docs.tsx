@@ -1,11 +1,12 @@
+import React from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Docs() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white shadow rounded-lg p-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Documentation</h1>
+        <div className="card shadow-lg p-8 border border-blue-900">
+          <h1 className="text-4xl font-bold text-white mb-8 drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]">Documentation</h1>
           
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Getting Started</h2>

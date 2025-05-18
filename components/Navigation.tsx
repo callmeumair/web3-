@@ -6,12 +6,12 @@ export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-gray-900 border-b border-gray-800">
+    <nav className="bg-gray-950 border-b border-blue-900 shadow-[0_0_20px_2px_rgba(59,130,246,0.15)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="text-xl font-bold text-white">
+              <Link href="/" className="text-xl font-bold text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]">
                 Web3 Token App
               </Link>
             </div>

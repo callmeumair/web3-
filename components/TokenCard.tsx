@@ -1,3 +1,4 @@
+import React from 'react';
 import { useReadContract } from 'wagmi';
 import { parseEther } from 'viem';
 
@@ -32,8 +33,8 @@ const TokenCard = ({ address, tokenAddress }: TokenCardProps) => {
   });
 
   return (
-    <div className="card p-6 mb-4">
-      <h3 className="text-xl font-semibold mb-2 text-white">{name || 'Loading...'}</h3>
+    <div className="card p-6 mb-4 border border-blue-900 shadow-[0_0_30px_5px_rgba(59,130,246,0.3)]">
+      <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]">{name || 'Loading...'}</h3>
       <div className="flex justify-between items-center">
         <span className="text-gray-400">Balance:</span>
         <span className="font-bold text-white">

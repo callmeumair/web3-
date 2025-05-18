@@ -45,17 +45,17 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
       <Navigation />
       
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-black text-white shadow-2xl" style={{boxShadow:'0 0 40px 10px rgba(59,130,246,0.3)'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-5xl font-extrabold mb-6 drop-shadow-[0_0_20px_rgba(59,130,246,0.7)]">
               Welcome to the Future of Token Management
             </h1>
-            <p className="text-xl mb-8 max-w-3xl mx-auto">
+            <p className="text-xl mb-8 max-w-3xl mx-auto text-blue-200">
               Experience seamless token management with our Web3 application. 
               Mint, burn, and track your tokens with ease on the blockchain.
             </p>
@@ -68,25 +68,25 @@ export default function Home() {
 
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Key Features</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">Key Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4">Token Management</h3>
-            <p className="text-gray-600">
+          <div className="card p-6 rounded-lg shadow-lg border border-blue-900">
+            <h3 className="text-xl font-semibold mb-4 text-blue-300">Token Management</h3>
+            <p className="text-gray-400">
               Easily mint and burn tokens with a simple interface. 
               Perfect for testing and development.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4">Real-time Balance</h3>
-            <p className="text-gray-600">
+          <div className="card p-6 rounded-lg shadow-lg border border-blue-900">
+            <h3 className="text-xl font-semibold mb-4 text-blue-300">Real-time Balance</h3>
+            <p className="text-gray-400">
               View your token balance in real-time. 
               Stay updated with your holdings.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-4">Transaction History</h3>
-            <p className="text-gray-600">
+          <div className="card p-6 rounded-lg shadow-lg border border-blue-900">
+            <h3 className="text-xl font-semibold mb-4 text-blue-300">Transaction History</h3>
+            <p className="text-gray-400">
               Track all your transactions with detailed history. 
               Never lose sight of your activity.
             </p>
@@ -97,7 +97,7 @@ export default function Home() {
       {/* Interactive Section */}
       {isConnected && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h2 className="text-3xl font-bold text-center mb-8">Your Token Dashboard</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-white drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">Your Token Dashboard</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <TokenCard 
@@ -105,8 +105,8 @@ export default function Home() {
                 tokenAddress={CONTRACT_ADDRESS}
               />
               
-              <div className="bg-white shadow rounded-lg p-6">
-                <h2 className="text-2xl font-semibold mb-4">Token Actions</h2>
+              <div className="card shadow rounded-lg p-6 border border-blue-900">
+                <h2 className="text-2xl font-semibold mb-4 text-blue-200">Token Actions</h2>
                 <div className="space-y-4">
                   <div>
                     <input
@@ -114,19 +114,19 @@ export default function Home() {
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
                       placeholder="Amount"
-                      className="w-full px-4 py-2 border rounded-md"
+                      className="input-field"
                     />
                   </div>
                   <div className="flex space-x-4">
                     <button
                       onClick={handleMint}
-                      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+                      className="btn-primary shadow-lg"
                     >
                       Mint
                     </button>
                     <button
                       onClick={handleBurn}
-                      className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors"
+                      className="btn-secondary shadow-lg"
                     >
                       Burn
                     </button>
@@ -144,10 +144,10 @@ export default function Home() {
 
       {/* Call to Action */}
       {!isConnected && (
-        <div className="bg-gray-800 text-white py-16">
+        <div className="bg-gradient-to-r from-blue-950 via-gray-900 to-black text-white py-16 shadow-2xl" style={{boxShadow:'0 0 40px 10px rgba(59,130,246,0.3)'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl mb-8">
+            <h2 className="text-3xl font-bold mb-6 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">Ready to Get Started?</h2>
+            <p className="text-xl mb-8 text-blue-200">
               Connect your wallet to begin managing your tokens
             </p>
             <div className="flex justify-center">

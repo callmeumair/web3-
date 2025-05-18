@@ -1,3 +1,4 @@
+import React from 'react';
 import { useAccount } from 'wagmi';
 import { useEffect, useState } from 'react';
 
@@ -32,8 +33,8 @@ const TransactionHistory = () => {
   }, [address]);
 
   return (
-    <div className="card p-6">
-      <h3 className="text-xl font-semibold mb-4 text-white">Recent Transactions</h3>
+    <div className="card p-6 border border-blue-900 shadow-[0_0_20px_2px_rgba(59,130,246,0.15)]">
+      <h3 className="text-xl font-semibold mb-4 text-white drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">Recent Transactions</h3>
       {transactions.length > 0 ? (
         <div className="space-y-4">
           {transactions.map((tx, index) => (
