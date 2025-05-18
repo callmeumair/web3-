@@ -32,11 +32,11 @@ const TokenCard = ({ address, tokenAddress }: TokenCardProps) => {
   });
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 mb-4">
-      <h3 className="text-xl font-semibold mb-2">{name || 'Loading...'}</h3>
+    <div className="card p-6 mb-4">
+      <h3 className="text-xl font-semibold mb-2 text-white">{name || 'Loading...'}</h3>
       <div className="flex justify-between items-center">
-        <span className="text-gray-600">Balance:</span>
-        <span className="font-bold">
+        <span className="text-gray-400">Balance:</span>
+        <span className="font-bold text-white">
           {balance ? `${balance.toString()} ${symbol || ''}` : 'Loading...'}
         </span>
       </div>

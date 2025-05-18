@@ -32,23 +32,23 @@ const TransactionHistory = () => {
   }, [address]);
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
-      <h3 className="text-xl font-semibold mb-4">Recent Transactions</h3>
+    <div className="card p-6">
+      <h3 className="text-xl font-semibold mb-4 text-white">Recent Transactions</h3>
       {transactions.length > 0 ? (
         <div className="space-y-4">
           {transactions.map((tx, index) => (
-            <div key={index} className="border-b pb-4">
+            <div key={index} className="border-b border-gray-700 pb-4">
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">From:</span>
-                <span className="font-mono text-sm">{tx.from}</span>
+                <span className="text-gray-400">From:</span>
+                <span className="font-mono text-sm text-gray-300">{tx.from}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">To:</span>
-                <span className="font-mono text-sm">{tx.to}</span>
+                <span className="text-gray-400">To:</span>
+                <span className="font-mono text-sm text-gray-300">{tx.to}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Value:</span>
-                <span className="font-bold">{tx.value} ETH</span>
+                <span className="text-gray-400">Value:</span>
+                <span className="font-bold text-white">{tx.value} ETH</span>
               </div>
             </div>
           ))}

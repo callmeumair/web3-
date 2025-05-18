@@ -3,31 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 11, 15, 25;
+  --glow-color: rgba(59, 130, 246, 0.5);
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
+      rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    );
+  min-height: 100vh;
 }
 
 @layer components {
   .btn-primary {
-    @apply px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors;
+    @apply px-4 py-2 bg-blue-500 text-white rounded-md transition-all duration-300 relative;
+    box-shadow: 0 0 10px var(--glow-color);
+  }
+  
+  .btn-primary:hover {
+    @apply bg-blue-600;
+    box-shadow: 0 0 20px var(--glow-color);
+    transform: translateY(-1px);
   }
   
   .btn-secondary {
-    @apply px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors;
+    @apply px-4 py-2 bg-gray-600 text-white rounded-md transition-all duration-300 relative;
+    box-shadow: 0 0 10px rgba(75, 85, 99, 0.5);
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-gray-700;
+    box-shadow: 0 0 20px rgba(75, 85, 99, 0.5);
+    transform: translateY(-1px);
   }
   
   .input-field {
-    @apply w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+    @apply w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+
+  .card {
+    @apply bg-gray-800 rounded-lg shadow-lg border border-gray-700;
+  }
+
+  .nav-link {
+    @apply text-gray-300 hover:text-white transition-colors;
+  }
+
+  .nav-link-active {
+    @apply text-white border-blue-500;
   }
 } 
